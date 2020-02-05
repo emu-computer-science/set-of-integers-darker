@@ -1,0 +1,41 @@
+﻿David, Parker
+
+
+To Do Order
+* SetOfIntegers : Parker
+   * Private String sort
+   * Private Arraylist<int> set
+   * Private Boolean descending
+   * Public SetOfIntegers(String s)
+   * Public String GetSort
+   * Public Arraylist GetSetOfIntegeres()
+   * Public String Display()
+* CollectionSetInegers : David
+   * Private SetOfIntegers selected
+   * Private arraylist<SetOfIntegers> listOfSets
+   * Public void DoAction(String s)
+   * Private void ShowAll()
+   * Private void ShowSelected()
+   * Private void SetSelected(String s)
+   * Public void DeleteSet()
+   * Public String NewSet(SetOfIntegers soi)
+* SetOfIntegers : Parker
+   * Public int Sort()
+   * Public boolean Randomize()
+   * Public boolean Reverse()
+
+
+While one person is doing their part the other will do the driver
+Driver
+* Main
+   * Get user input
+   * Call to DoAction(input)
+* Private void Quit()
+
+
+Finally saving we will figure out at the end
+
+
+* CollectionSetInegers
+   * Public boolean ReadFile(String fileName)
+   * Public boolean WriteFile(String fileName)
