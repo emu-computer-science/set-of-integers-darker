@@ -3,17 +3,16 @@
 
 To Do Order
 * SetOfIntegers : Parker
-   * Private String sort
+   * Private String sortType
    * Private Arraylist<int> set
    * Private Boolean descending
    * Public SetOfIntegers(String s)
-   * Public String GetSort
+   * Public String GetSortType
    * Public Arraylist GetSetOfIntegeres()
    * Public String Display()
 * CollectionSetInegers : David
    * Private SetOfIntegers selected
    * Private arraylist<SetOfIntegers> listOfSets
-   * Public void DoAction(String s)
    * Private void ShowAll()
    * Private void ShowSelected()
    * Private void SetSelected(String s)
