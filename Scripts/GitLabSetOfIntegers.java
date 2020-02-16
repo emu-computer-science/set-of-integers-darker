@@ -1,6 +1,13 @@
 
 package gitlabsetofintegers;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 public class GitLabSetOfIntegers {
@@ -58,11 +65,27 @@ public class GitLabSetOfIntegers {
             }
             else if(command.equals("save"))
             {
-                
+                System.out.println("Enter name of file");
+                String fileName = kb.nextLine();
+                try{
+                    Save(fileName, csi);
+                    System.out.println("The state has bee saved to " + fileName);
+                }
+                catch(Exception e){
+                    System.out.println("Unable to save state to " + fileName);
+                }
             }
             else if(command.equals("restore"))
             {
-                
+                System.out.println("Enter name of file");
+                String fileName = kb.nextLine();
+                try{
+                    csi = Restore(fileName);
+                    System.out.println("The state has been restore to " + fileName);
+                }
+                catch(Exception e){
+                    System.out.println("Unable to restore state to " + fileName);
+                }
             }
             else if(command.equals("quit"))
             {
@@ -75,6 +98,29 @@ public class GitLabSetOfIntegers {
             }
             
         }
+    }
+    
+    private static void Save(String s, CollectionSetIntegers csi) throws FileNotFoundException, IOException
+    {
+        FileOutputStream f = new FileOutputStream(new File(s));
+        ObjectOutputStream o = new ObjectOutputStream(f);
+        
+        o.writeObject(csi);
+        
+        o.close();
+        f.close();
+    }
+    
+    private static CollectionSetIntegers Restore(String s) throws FileNotFoundException, IOException, ClassNotFoundException
+    {
+        FileInputStream fi = new FileInputStream(new File(s));
+        ObjectInputStream oi = new ObjectInputStream(fi);
+        
+        CollectionSetIntegers rtn = (CollectionSetIntegers)oi.readObject();
+        
+        oi.close();
+        fi.close();
+        return rtn;
     }
     
     private static void TestSetOfIntegers()

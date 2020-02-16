@@ -1,7 +1,9 @@
 
 package gitlabsetofintegers;
 
-public class CollectionSetIntegers {
+import java.io.Serializable;
+
+public class CollectionSetIntegers implements Serializable{
     private SetOfIntegers selected;
     
     public SetOfIntegers GetSelected()

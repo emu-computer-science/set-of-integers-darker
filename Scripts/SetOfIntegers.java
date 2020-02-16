@@ -1,10 +1,11 @@
 
 package gitlabsetofintegers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class SetOfIntegers {
+public class SetOfIntegers implements Serializable{
     
     private String sortType;
     private ArrayList<Integer> set;
