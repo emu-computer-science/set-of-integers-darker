@@ -10,14 +10,14 @@ public class SetOfIntegers implements Serializable{
     private String sortType;
     private ArrayList<Integer> set;
     private boolean desending;
-    
-    public SetOfIntegers(String s)
+    int count;
+    public SetOfIntegers(String s, int x)
     {
-        String[] arr =  s.split(" ");
+    	count = x;
+        String[] arr =  s.split(":");
         set = new ArrayList<Integer>();
         for(String str : arr)
             set.add(Integer.parseInt(str));
-        
         sortType = "Random";
     }
     
