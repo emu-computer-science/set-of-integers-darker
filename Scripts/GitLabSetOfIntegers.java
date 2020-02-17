@@ -1,5 +1,6 @@
-
 package gitlabsetofintegers;
+
+
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GitLabSetOfIntegers {
@@ -16,7 +18,6 @@ public class GitLabSetOfIntegers {
         
         Scanner kb = new Scanner(System.in);
         CollectionSetIntegers csi = new CollectionSetIntegers();
-        
         while(1 == 1)
         {
             System.out.println("\n\n Commands: \n show \n new \n select \n delete \n sort "
@@ -27,20 +28,48 @@ public class GitLabSetOfIntegers {
             
             if(command.equals("show"))
             {
-                
+            	for(int i = 0; i < csi.count; i++)
+            	{
+            		if(csi.intset.get(i) == csi.GetSelected())
+            		{
+            			System.out.println("*" +((char)(i+65)) + ".  " + csi.intset.get(i).Display());
+            		}
+            		else
+            		{
+            		System.out.println(((char)(i+65)) + ".  " + csi.intset.get(i).Display());
+            		}
+            	}
             }
             else if(command.equals("new"))
             {
-                
+             	String input = "";
+            	String x = "";
+                System.out.println("Enter a number to add to the set or type quit");
+                x = kb.nextLine().toLowerCase();
+            	while(!(x.equals("quit")))
+            	{
+                 input += x + ":";
+                 System.out.println("Enter a number to add to the set or type quit");
+                 x = kb.nextLine().toLowerCase();
+            	}
+            	csi.NewSet(input);
             }
             else if(command.equals("select"))
             {
-                
+                System.out.println("Enter the character of the set you want to select:");
+                char y = kb.next().charAt(0);
+                y = Character.toUpperCase(y);
+                int select = y - 65;
+                csi.SetSelected(select);
             }
             else if(command.equals("delete"))
             {
                 if(csi.GetSelected() == null)
                     NoSetSelected("delete");
+                else {
+                	csi.DeleteSet();
+                	System.out.println("Selected Set Removed");
+                }
             }
             else if(command.equals("sort"))
             {
@@ -126,7 +155,7 @@ public class GitLabSetOfIntegers {
     private static void TestSetOfIntegers()
     {
         String s = "6 5 4 3";
-        SetOfIntegers set = new SetOfIntegers(s);
+        SetOfIntegers set = new SetOfIntegers(s,0);
         System.out.println(set.Display());
         
         set.Sort();
